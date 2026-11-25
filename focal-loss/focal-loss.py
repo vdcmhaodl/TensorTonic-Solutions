@@ -7,7 +7,6 @@ def focal_loss(p: list, y: list, gamma: float = 2.0) -> float:
     # Write code here
     p = np.asarray(p, dtype=float)
     y = np.asarray(y, dtype=int)
-    p = np.clip(p, 1e-15, 1.0 - 1e-15)
     L = -(((1 - p) ** gamma) * y * np.log(p)) - (p ** gamma) * (1 - y) * np.log(1 - p)
 
     Loss = float(np.mean(L))
